@@ -1,0 +1,21 @@
+{
+  "extends": ["config:recommended"],
+  "enabledManagers": ["terraform"],
+  "timezone": "America/Bogota",
+  "dependencyDashboard": true,
+  "labels": ["dependencies", "terraform", "renovate"],
+  "schedule": ["at any time"],
+
+  "packageRules": [
+    {
+      "matchManagers": ["terraform"],
+      "matchDatasources": ["github-tags", "git-tags"],
+      "matchPackageNames": ["github.com/romiran83/module-renovate"],
+      "groupName": "module-renovate updates",
+      "prTitle": "chore(terraform): update module-renovate to {{newVersion}}",
+      "commitMessageTopic": "module-renovate",
+      "commitMessageExtra": "to {{newVersion}}",
+      "automerge": false
+    }
+  ]
+}
